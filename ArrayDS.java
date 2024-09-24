@@ -84,7 +84,7 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
         if (index <= 0)
             return null;
 
-        for (int i = size; i > 0; i--) {
+        for (int i = size - 1; i > 0; i--) {
             if (array[i].equals(item)) {
                 return array[indexOf(item) - 1];
             }
