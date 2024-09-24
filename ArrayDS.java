@@ -81,10 +81,15 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
     // predecessor(), return T at indexOf(itemT - 1)
     public T predecessor(T item) {
         int index = indexOf(item);
-        if (index == -1 || index == 0) {
+        if (index <= 0)
             return null;
+
+        for (int i = size; i > 0; i--) {
+            if (array[i].equals(item)) {
+                return array[indexOf(item) - 1];
+            }
         }
-        return array[index - 1];
+        return null;
     }
     //                  ||
     //                  ||
