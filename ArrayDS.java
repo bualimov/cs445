@@ -231,20 +231,21 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
 
     // slice()
     // compareTo() helper method needed
+    // public int compareTo(ArrayDS<T> other) {
+    //     return Integer.compare(this.size, other.size);
+    // }
     public int compareTo(ArrayDS<T> other) {
-        // return Integer.compare(this.size, other.size);
         int sizeComparison = Integer.compare(this.size, other.size);
-
-        if (sizeComparison != 0)
+        if (sizeComparison != 0) {
             return sizeComparison;
-        
+        }
+    
         for (int i = 0; i < this.size; i++) {
             int elementComparison = this.array[i].compareTo(other.array[i]);
             if (elementComparison != 0) {
-                return elementComparison;
+                return elementComparison; 
             }
         }
-        
         return 0;
     }
 
