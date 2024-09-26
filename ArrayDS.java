@@ -94,12 +94,12 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
         // return null;
 
         int index = indexOf(item);
-        if (index == -1)
+        if (index <= 0)
             return null;
-
-        if (index == 0)
-            return array[size - 1];
         
+        if (index == size - 1)
+            return array[size - 2];
+            
         return array[index - 1];
     }
     //                  ||
