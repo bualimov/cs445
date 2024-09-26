@@ -94,12 +94,15 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
         // return null;
 
         int index = indexOf(item);
-        if (index <= 0)
+        if (index == 0)
             return null;
         
-        if (index == size - 1)
-            return array[size - 2];
-            
+        T answer;
+        if (index == 0) {
+            if (size > 1) {
+                answer = null;
+            }
+        }
         return array[index - 1];
     }
     //                  ||
@@ -259,9 +262,6 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
     // ReorderInterface:
     // reverse()
     public void reverse() {
-        if (isEmpty()) 
-            throw new EmptySequenceException("Array is empty.");
-
         T[] reversed = (T[]) new Comparable[size];
         for (int i = 0; i < size; i++) {
             reversed[i] = array[size - 1 - i];
