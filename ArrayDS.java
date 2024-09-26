@@ -241,9 +241,11 @@ public class ArrayDS<T extends Comparable<? super T>> implements SequenceInterfa
         }
     
         for (int i = 0; i < this.size; i++) {
-            int elementComparison = this.array[i].compareTo(other.array[i]);
+            int thisValue = Integer.parseInt(this.array[i].toString());
+            int otherValue = Integer.parseInt(other.array[i].toString());
+            int elementComparison = Integer.compare(thisValue, otherValue);
             if (elementComparison != 0) {
-                return elementComparison; 
+                return elementComparison;
             }
         }
         return 0;
